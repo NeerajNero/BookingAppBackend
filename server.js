@@ -15,6 +15,9 @@ app.use(express.json());
 app.use('/api/movies', movieRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/bookings', bookingRoutes);
+app.get('/', (req,res) => {
+    res.status(200).json("Hey There, Welcome!")
+})
 
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
