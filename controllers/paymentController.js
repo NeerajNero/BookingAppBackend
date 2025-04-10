@@ -1,9 +1,9 @@
 import Stripe from 'stripe';
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export const createCheckoutSession = async (req, res) => {
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
   const { movieTitle, tickets } = req.body;
-
+    console.log(movieTitle, tickets)
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
